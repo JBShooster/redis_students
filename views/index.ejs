@@ -1,0 +1,22 @@
+<h1>List of Students</h1>
+<h2>Check it out! WDI 16 EVERYBODY!</h2>
+
+<ol>
+<% students.forEach (function(student){ %>
+  <li>
+  <%= student %>
+  <form action="/remove/<%=student%>?_method=DELETE" method="POST">
+    <input type="submit" value="X">
+  </form>
+  </li>
+<% }); %>
+</ol>
+<form action="/create", method="POST">
+  <p>
+  <label for="pupil">Student Name: </label>
+  <input type="text", name="pupil", id="pupil", autofocus="true">
+  </p>
+  <p>
+  <input type="submit", value="Create student">
+  </p> 
+</form>
