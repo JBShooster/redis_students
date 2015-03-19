@@ -29,15 +29,9 @@ app.post("/create", function(req, res){
   res.redirect("/");
 });
 
-app.delete("/remove/:student", function(req, res){
-  client.lrange("students", 0, 1, function(err,students){
-    students.forEach(function(student){
-    if(req.params.student === student){
-      client.lrem("students", 1, student);
-      res.redirect("/");
-      }
-    });
-  });
+app.delete("/remove", function(req, res){
+  client.del("students");
+  res.redirect("/");
 });
 
 app.listen(3000, function(){
